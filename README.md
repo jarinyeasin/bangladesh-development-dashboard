@@ -166,18 +166,6 @@ streamlit run 04_dashboard.py  # launch dashboard at localhost:8501
 
 ---
 
-## Companion Project
-
-This pipeline is the second in a series of data science portfolio projects studying Bangladesh through computational methods:
-
-| Project | Method | Status |
-|---|---|---|
-| [Media Usage & Wellbeing Study](https://github.com/jarinyeasin/media-usage-wellbeing-project) | Survey analysis · sklearn · scipy · PCA · K-means | ✅ Complete |
-| Bangladesh Development Data Pipeline (this project) | ETL pipeline · SQLite · Streamlit · World Bank API | ✅ Complete |
-| Bangla Sentiment Analysis Engine | NLP · BanglaBERT · HuggingFace · arXiv | 🔄 In progress |
-
----
-
 ## Data Source
 
 World Bank Open Data · [data.worldbank.org/country/BD](https://data.worldbank.org/country/BD) · CC BY 4.0 License
@@ -187,6 +175,4 @@ World Bank Open Data · [data.worldbank.org/country/BD](https://data.worldbank.o
 ## Author
 
 **Jarin Binta Yeasin** | Final-year undergraduate, Mass Communication & Journalism, University of Dhaka  
-📧 jarinyeasin@gmail.com · 🔗 [LinkedIn](www.linkedin.com/in/jarin-binta-yeasin-b61b88278
-
-) · 🐙 [GitHub](https://github.com/jarinyeasin)
+📧 jarinyeasin@gmail.com · 🔗 [LinkedIn](www.linkedin.com/in/jarin-binta-yeasin-b61b88278) · 🐙 [GitHub](https://github.com/jarinyeasin)
