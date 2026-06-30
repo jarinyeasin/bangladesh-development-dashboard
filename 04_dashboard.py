@@ -22,8 +22,10 @@ DB_PATH = "data/bangladesh_development.db"
 @st.cache_data
 def load_data():
     """Fetch data directly from World Bank API for cloud deployment."""
+    import requests
+
     BASE_URL = "https://api.worldbank.org/v2/country/BD/indicator"
-    
+
     INDICATORS = {
         "NY.GDP.MKTP.CD":  "GDP_current_USD",
         "NY.GDP.PCAP.CD":  "GDP_per_capita_USD",
@@ -34,6 +36,34 @@ def load_data():
         "SL.UEM.TOTL.ZS":  "unemployment_rate",
         "EG.ELC.ACCS.ZS":  "electricity_access_percent",
     }
+
+    # Build one dict per year, then convert to DataFrame
+    year_data = {}
+
+    for code, name in INDICATORS.items():
+        url = f"{BASE_URL}/{code}"
+        params = {"format": "json", "per_page": 100, "mrv": 30}
+        try:
+            response = requests.get(url, params=params, timeout=15)
+            data = response.json()
+            if len(data) >= 2 and data[1]:
+                for entry in data[1]:
+                    if entry["value"] is not None:
+                        yr = int(entry["date"])
+                        if yr not in year_data:
+                            year_data[yr] = {"year": yr}
+                        year_data[yr][name] = float(entry["value"])
+        except Exception:
+            pass
+
+    df = pd.DataFrame(list(year_data.values())).sort_values("year").reset_index(drop=True)
+
+    # Derived columns — only add if source column exists
+    if "GDP_current_USD" in df.columns:
+        df["GDP_billions"]   = df["GDP_current_USD"] / 1e9
+        df["GDP_growth_pct"] = df["GDP_current_USD"].pct_change() * 100
+
+    return df
     
     import requests
     all_data = []
