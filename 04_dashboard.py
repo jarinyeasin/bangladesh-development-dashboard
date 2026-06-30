@@ -1,22 +1,11 @@
 """
 04_dashboard.py
----------------
-Phase 4: Interactive Streamlit dashboard.
-
-Reads:  data/bangladesh_development.db   (created by 02_clean_store.py)
-        outputs/fig*.png                 (created by 03_visualize.py)
-
-HOW TO RUN:
-    streamlit run 04_dashboard.py
-
-This opens a browser tab automatically at http://localhost:8501
 """
 
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
-from sqlalchemy import create_engine, text
 
 # ── page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -32,20 +21,46 @@ DB_PATH = "data/bangladesh_development.db"
 
 @st.cache_data
 def load_data():
-    """Load from SQLite. Cached so it only runs once per session."""
-    if not os.path.exists(DB_PATH):
-        st.error(
-            f"Database not found at '{DB_PATH}'. "
-            "Please run 02_clean_store.py first."
-        )
-        st.stop()
-
-    engine = create_engine(f"sqlite:///{DB_PATH}")
-    with engine.connect() as conn:
-        df = pd.read_sql(
-            text("SELECT * FROM development_indicators ORDER BY year"),
-            conn,
-        )
+    """Fetch data directly from World Bank API for cloud deployment."""
+    BASE_URL = "https://api.worldbank.org/v2/country/BD/indicator"
+    
+    INDICATORS = {
+        "NY.GDP.MKTP.CD":  "GDP_current_USD",
+        "NY.GDP.PCAP.CD":  "GDP_per_capita_USD",
+        "FP.CPI.TOTL.ZG":  "inflation_rate",
+        "SE.ADT.LITR.ZS":  "literacy_rate",
+        "IT.NET.USER.ZS":  "internet_users_percent",
+        "SP.POP.TOTL":     "total_population",
+        "SL.UEM.TOTL.ZS":  "unemployment_rate",
+        "EG.ELC.ACCS.ZS":  "electricity_access_percent",
+    }
+    
+    import requests
+    all_data = []
+    
+    for code, name in INDICATORS.items():
+        url = f"{BASE_URL}/{code}"
+        params = {"format": "json", "per_page": 100, "mrv": 30}
+        try:
+            response = requests.get(url, params=params, timeout=15)
+            data = response.json()
+            if len(data) >= 2 and data[1]:
+                for entry in data[1]:
+                    if entry["value"] is not None:
+                        all_data.append({
+                            "year": int(entry["date"]),
+                            name: float(entry["value"])
+                        })
+        except Exception:
+            pass
+    
+    df = pd.DataFrame(all_data)
+    df = df.groupby("year").first().reset_index().sort_values("year")
+    
+    if "GDP_current_USD" in df.columns:
+        df["GDP_billions"] = df["GDP_current_USD"] / 1e9
+        df["GDP_growth_pct"] = df["GDP_current_USD"].pct_change() * 100
+    
     return df
 
 
