@@ -1,7 +1,3 @@
-"""
-04_dashboard.py
-"""
-
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -108,7 +104,7 @@ st.sidebar.markdown(
 )
 st.sidebar.markdown("**Built with:** Python · SQLite · Streamlit · Plotly")
 st.sidebar.markdown("---")
-st.sidebar.markdown("*Part of the Bangladesh Development Data Pipeline portfolio project.*")
+st.sidebar.markdown("*Part of the Bangladesh Development Data Pipeline individual project.*")
 
 # ── header ────────────────────────────────────────────────────────────────────
 st.title("🇧🇩 Bangladesh Development Indicators")
@@ -265,5 +261,5 @@ st.markdown("---")
 st.caption(
     "Data: World Bank Open Data (CC BY 4.0) · "
     "Built by Jarin Binta Yeasin · "
-    "Portfolio project — Bangladesh Development Data Pipeline"
+    "An Individual Project on Bangladesh Development Data Pipeline"
 )
