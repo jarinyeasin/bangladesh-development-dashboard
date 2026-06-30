@@ -14,11 +14,11 @@
 
 Bangladesh presents one of the most analytically compelling development stories of the past three decades, a country that has sustained GDP growth rates averaging 6–7% annually while simultaneously navigating acute structural challenges: a population of 174 million in one of the world's most densely settled territories, persistent digital inequality between urban and rural areas, and an economy structurally exposed to climate risk through its low-lying delta geography.
 
-Standard economic reporting on Bangladesh tends toward either uncritical optimism ("the Bengal Tiger economy") or crisis framing around political instability and climate vulnerability. Neither framing is analytically adequate. This project takes a different approach: letting longitudinal World Bank data speak across eight development dimensions simultaneously, making visible the relationships — and the tensions — that single-indicator reporting obscures.
+Standard economic reporting on Bangladesh tends toward either uncritical optimism ("the Bengal Tiger economy") or crisis framing around political instability and climate vulnerability. Neither framing is analytically adequate. This project takes a different approach: letting longitudinal World Bank data speak across eight development dimensions simultaneously, making visible the relationships and the tensions that single-indicator reporting obscures.
 
 Three research questions motivate the indicator selection:
 
-1. **Does Bangladesh's aggregate GDP growth translate into proportional gains in human development indicators** — literacy, electricity access, employment — or does growth remain structurally concentrated?
+1. **Does Bangladesh's aggregate GDP growth translate into proportional gains in human development indicators** literacy, electricity access, employment or does growth remain structurally concentrated?
 2. **How did the COVID-19 shock of 2020 propagate across economic and social indicators**, and what does the recovery trajectory reveal about the resilience of Bangladesh's development model?
 3. **Is digital inclusion (internet penetration) tracking with or lagging behind economic growth**, and what does the gap suggest about the distributional reach of the country's "Digital Bangladesh" agenda?
 
@@ -43,19 +43,19 @@ Three research questions motivate the indicator selection:
 
 ### 1. GDP Growth Without Proportional Employment Absorption
 
-Bangladesh's GDP grew from approximately $30B in 1990 to over $400B by 2024 — a 13× increase over three decades, placing it among the fastest-growing economies in South Asia. Yet the unemployment rate across the same period remained relatively stable in the 4–5% band, rather than declining as classical development theory would predict. Interpreted alongside population growth from roughly 108 million (1990) to 174 million (2024), this stability is not comforting — it suggests the economy is absorbing a rapidly expanding labour force without generating proportionally more formal employment. The informal sector, not captured in these ILO-modelled estimates, likely explains much of this divergence.
+Bangladesh's GDP grew from approximately $30B in 1990 to over $400B by 2024, a 13× increase over three decades, placing it among the fastest-growing economies in South Asia. Yet the unemployment rate across the same period remained relatively stable in the 4–5% band, rather than declining as classical development theory would predict. Interpreted alongside population growth from roughly 108 million (1990) to 174 million (2024), this stability is not comforting, it suggests the economy is absorbing a rapidly expanding labour force without generating proportionally more formal employment. The informal sector, not captured in these ILO-modelled estimates, likely explains much of this divergence.
 
 ### 2. The COVID-19 Unemployment Signal and Recovery
 
-The 2020 COVID-19 shock is visible in the data as a clear unemployment spike — the rate reached approximately 5.3% in 2020, its highest point in the observed period, rising from 4.22% in 2019. The spike was driven primarily by suspension of non-critical services, particularly hospitality, with partial recovery beginning as early as mid-2020 as informal sector activity resumed. By 2022–2023, the rate had returned to its pre-COVID band. The recovery is real — but its speed reflects the informality of Bangladesh's employment structure as much as it reflects resilience: workers re-entered informal arrangements, not formal employment recovery.
+The 2020 COVID-19 shock is visible in the data as a clear unemployment spike, the rate reached approximately 5.3% in 2020, its highest point in the observed period, rising from 4.22% in 2019. The spike was driven primarily by suspension of non-critical services, particularly hospitality, with partial recovery beginning as early as mid-2020 as informal sector activity resumed. By 2022–2023, the rate had returned to its pre-COVID band. The recovery is real but its speed reflects the informality of Bangladesh's employment structure as much as it reflects resilience: workers re-entered informal arrangements, not formal employment recovery.
 
 ### 3. Digital Inclusion: Rapid Growth, Persistent Structural Gap
 
-Internet penetration in Bangladesh rose from near-zero in 2000 to approximately 40–47% by 2023–2025, driven almost entirely by mobile internet expansion following 4G rollout in 2018. The digital economy contributed an estimated 4.2% of GDP by 2025, exceeding earlier projections. However, the aggregate penetration figure conceals a significant urban-rural divide: urban penetration reached approximately 78% by 2025, while rural penetration lagged at 49%. Electricity access — which reached approximately 88% nationally by the early 2020s — functions as the infrastructural floor beneath digital inclusion; the remaining 12% without electricity access represents a population structurally excluded from digital participation regardless of mobile network availability.
+Internet penetration in Bangladesh rose from near-zero in 2000 to approximately 40–47% by 2023–2025, driven almost entirely by mobile internet expansion following 4G rollout in 2018. The digital economy contributed an estimated 4.2% of GDP by 2025, exceeding earlier projections. However, the aggregate penetration figure conceals a significant urban-rural divide: urban penetration reached approximately 78% by 2025, while rural penetration lagged at 49%. Electricity access which reached approximately 88% nationally by the early 2020s functions as the infrastructural floor beneath digital inclusion; the remaining 12% without electricity access represents a population structurally excluded from digital participation regardless of mobile network availability.
 
 ### 4. The Literacy-Growth Relationship
 
-Adult literacy improved from approximately 35% in 1990 to over 74% by the early 2020s — a 40-percentage-point gain over three decades. The trajectory tracks closely with GDP per capita growth, suggesting genuine co-movement rather than the literacy gains lagging growth (as occurs in economies where growth is primarily resource-extraction driven). This co-movement is consistent with Bangladesh's growth model, which is human-capital intensive through the garment sector and remittance economy, both of which reward basic literacy and numeracy.
+Adult literacy improved from approximately 35% in 1990 to over 74% by the early 2020s, a 40-percentage-point gain over three decades. The trajectory tracks closely with GDP per capita growth, suggesting genuine co-movement rather than the literacy gains lagging growth (as occurs in economies where growth is primarily resource-extraction driven). This co-movement is consistent with Bangladesh's growth model, which is human-capital intensive through the garment sector and remittance economy, both of which reward basic literacy and numeracy.
 
 ---
 
@@ -152,7 +152,7 @@ streamlit run 04_dashboard.py  # launch dashboard at localhost:8501
 - **No API key required.** The World Bank Open Data API is completely free and open.
 - **Reproducible.** Run the 4 scripts in sequence on any machine with Python 3.10+.
 - **Offline-capable.** Once the database is built, scripts 3 and 4 run without internet access.
-- **SQLite chosen** over CSV for the storage layer to demonstrate relational database concepts — table creation, SQL queries, index-based retrieval — while keeping zero infrastructure overhead.
+- **SQLite chosen** over CSV for the storage layer to demonstrate relational database concepts — table creation, SQL queries, index-based retrieval, while keeping zero infrastructure overhead.
 - **Streamlit Cloud deployment** uses direct API fetch with `@st.cache_data` to avoid local file dependency on the hosted environment.
 
 ---
@@ -160,7 +160,7 @@ streamlit run 04_dashboard.py  # launch dashboard at localhost:8501
 ## Limitations
 
 - **ILO-modelled unemployment estimates** smooth over informal sector volatility, likely underestimating true COVID-era labour market disruption given Bangladesh's large informal economy.
-- **Sample resolution** is annual — quarterly or monthly data would reveal shock propagation and recovery dynamics more precisely, particularly around the 2020 COVID period.
+- **Sample resolution** is annual. Quarterly or monthly data would reveal shock propagation and recovery dynamics more precisely, particularly around the 2020 COVID period.
 - **Electricity access figures** are self-reported national estimates and may overstate rural access quality (connection vs. reliable supply).
 - **Internet penetration** counts unique SIM connections rather than individual users, potentially double-counting in a market with high multi-SIM usage.
 
