@@ -6,7 +6,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.36-FF4B4B?logo=streamlit&logoColor=white)](https://streamlit.io)
 [![World Bank](https://img.shields.io/badge/Data-World%20Bank%20Open%20Data-009FDA)](https://data.worldbank.org)
 
-> 🔗 **[View Live Dashboard](#)** *(deploy to Streamlit Cloud — link added after deployment)*
+> 🔗 **[View Live Dashboard](https://bangladesh-development-dashboard-mneydmy24fk5pew5drbtkt.streamlit.app/)**
 
 ---
 
@@ -160,4 +160,4 @@ World Bank Open Data · [data.worldbank.org](https://data.worldbank.org/country/
 ## Author
 
 **Jarin Binta Yeasin** | Final-year undergraduate, Mass Communication & Journalism, University of Dhaka  
-📧 jarinyeasin@gmail.com · 🔗 [LinkedIn](https://linkedin.com/in/jarin-binta-yeasin) · 🐙 [GitHub](https://github.com/jarinyeasin)
+📧 jarinyeasin@gmail.com · 🔗 [LinkedIn](https://www.linkedin.com/in/jarin-binta-yeasin-b61b88278) · 🐙 [GitHub](https://github.com/jarinyeasin)
